@@ -24,5 +24,20 @@ using Prime.Service;
              // assert
              Assert.IsFalse(result, $"1 should not be prime");
          }
+
+         [DataTestMethod]
+         [DataRow(-1)]
+         [DataRow(0)]
+         [DataRow(1)]
+         public void IsPrime_GivenValuesLessThan2_ReturnFalse(int value)
+         {
+             // arrange
+
+             // act
+             var result = _primeService.IsPrime(value);
+
+             // assert
+             Assert.IsFalse(result, $"{value} should not be prime");
+         }
      }
  }
